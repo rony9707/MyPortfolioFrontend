@@ -67,6 +67,7 @@ export class ConnectWithMeComponent implements OnInit {
 
         },
         (err) => {
+          this.loading = false;
           swal.fire("Error", err.error.message)
         }
       )
