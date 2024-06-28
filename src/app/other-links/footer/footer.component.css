@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+.footer-main {
+  width: 100%;
+  height: 35px;
+  background-color: rgba(20, 20, 20, 0.8); /* This will set the background color using */
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  cursor: default;
+  background-color: transparent;
+  z-index: -1;
+}
+
+.footer-sub1{
+  cursor: default;
+  color: white;
+}
+
+.footer-sub2{
+  cursor: default;
+  margin-left: 5px;
+  color: var(--hover-border);
+  margin-right: 20px;
+}
+
+
+
+
+/* Media query for 2 columns */
+@media (max-width: 1596px) {
+  .footer-main {
+    width: 100%;
+    height: 35px;
+    background-color: rgba(20, 20, 20, 0.8); /* This will set the background color using */
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    cursor: default;
+    z-index: 100;
+  }  
+}

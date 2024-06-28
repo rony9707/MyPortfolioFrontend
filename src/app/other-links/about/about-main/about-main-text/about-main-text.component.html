@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="about-main-text">
+  <div class="about-main-text-title about-main-text-common">Frontend/Backend Developer</div>
+  <div class="about-main-text-aboutMeShort about-main-text-common">{{aboutMeShort}}</div>
+
+  <div class="about-main-text-table about-main-text-common">
+    <ul class="b" style="padding:0; margin:0; ">
+      <li><span>Birthday:</span>{{aboutMeInfo.Birthday | date: 'MMMM dd, y'}}</li>
+      <li><span>Website:</span>{{aboutMeInfo.Website}} <button (click)="copyToClipboard(aboutMeInfo.Website)" class="about-main-text-copyToClipboard"><i class="fa fa-clone"></i></button></li>
+      <li><span>Phone:</span>{{aboutMeInfo.Phone}} <button (click)="copyToClipboard(aboutMeInfo.Phone)" class="about-main-text-copyToClipboard"><i class="fa fa-clone"></i></button> </li>
+      <li><span>City:</span>{{aboutMeInfo.Location}}</li>
+    </ul>
+
+    <ul class="b" style="padding:0; margin:0; ">
+      <li><span>Age:</span>{{aboutMeInfo.Age}}</li>
+      <li><span>Degree:</span>{{aboutMeInfo.Degree}}</li>
+      <li><span>Email:</span>{{aboutMeInfo.Email}} <button (click)="copyToClipboard(aboutMeInfo.Email)" class="about-main-text-copyToClipboard"><i class="fa fa-clone"></i></button> </li>
+      <li><span>Languages known:</span>{{aboutMeInfo.Language}}</li>
+    </ul>
+  </div>
+
+
+  <div style="font-style: unset;" class="about-main-text-aboutMeShort about-main-text-common">{{aboutMeShort}}</div>
+
+
+</div>

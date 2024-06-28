@@ -1,0 +1,21 @@
+<app-header></app-header>
+<app-link-container>
+  <app-container-header>PORTFOLIO</app-container-header>
+  <app-container-title>MY WORKS</app-container-title>
+
+  <div class="portfolio-main" *ngIf="!selectedProject" @scaleOut>
+    <ng-container *ngFor="let metricKey of getMetricKeys();">
+      <app-portfolio-template 
+        (click)="selectProjectLocation($event, metricKey)"
+        [MyPortfolios]="MyPortfolioObject[metricKey]">
+      </app-portfolio-template>
+    </ng-container>
+  </div>
+
+</app-link-container>
+
+<app-footer></app-footer>
+<div class="selected-project" *ngIf="selectedProject" [@scaleIn]="{ value: 'visible', params: { transformOriginX: transformOriginX, transformOriginY: transformOriginY } }">
+  <app-selected-project [selectedProject]="selectedProject" (closeProject)="closeSelectedProject()">
+  </app-selected-project>
+</div>

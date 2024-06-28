@@ -1,0 +1,70 @@
+<div class="interests-main">
+
+  <div class="interest interest1">
+    <div class="interest-logo"><img class="interst_svg" src="assets\svg_interest\tvshow.svg"></div>
+    <div class="interest-description">Anime & TV shows</div>
+  </div>
+
+  <div class="interest interest2">
+    <div class="interest-logo"><img class="interst_svg" src="assets\svg_interest\football.svg"></div>
+    <div class="interest-description">Football</div>
+  </div>
+
+  <div
+    [ngClass]="{'interest_music': true, 'blink-element': !musicData.playSongStatus, 'playing-element': musicData.playSongStatus}"
+    class="music-main-div" (click)="playSongs()">
+  
+    <div class="music-main-overlay" 
+     [@nextSong]="animationState" (@nextSong.done)="resetAnimationState()"></div>
+
+    <div class="music-sub">
+      <div class="interest-logo">
+        <!-- Music Child Component -->
+        <app-music-controller 
+        [musicData]="musicData"
+        (songProgress)="progress($event)"
+        >
+        </app-music-controller>
+      </div>
+      <div class="interest-description">Music</div>
+    </div>
+    <div class="music-sub">
+      <input [@fadeInOut] *ngIf="musicData.playSongStatus" #songSlider type="range" value={{musicData.volumeLevel}}
+        class="volume-slider" min="0" max="100" (input)="logRangeValue($event)" (click)="stopClickPropagation($event)">
+      <img [@fadeInOut] *ngIf="musicData.playSongStatus" (click)="nextSong()" class="interst_svg_music"
+        src="assets\svg_interest\next.svg" (click)="stopClickPropagation($event)">
+    </div>
+
+    <progress [@fadeInOut]  *ngIf="musicData.playSongStatus" class="music-progress-bar" 
+    [value]="songProgress" max="100" 
+    (click)="seekToPosition($event)" 
+    (click)="stopClickPropagation($event)"></progress>
+
+  </div>
+
+  <div class="interest interest4">
+    <div class="interest-logo"><img class="interst_svg" src="assets\svg_interest\coding.svg"></div>
+    <div class="interest-description">Coding</div>
+  </div>
+
+  <div class="interest interest5">
+    <div class="interest-logo"><img class="interst_svg" src="assets\svg_interest\games.svg"></div>
+    <div class="interest-description">PC Games</div>
+  </div>
+
+  <div class="interest interest6">
+    <div class="interest-logo"><img class="interst_svg" src="assets\svg_interest\cat.svg"></div>
+    <div class="interest-description">Cats</div>
+  </div>
+
+  <div class="interest interest7">
+    <div class="interest-logo"><img class="interst_svg" src="assets\svg_interest\food.svg"></div>
+    <div class="interest-description">Food</div>
+  </div>
+
+  <div class="interest interest8">
+    <div class="interest-logo"><img class="interst_svg" src="assets\svg_interest\travelling.svg"></div>
+    <div class="interest-description">Traveling</div>
+  </div>
+
+</div>

@@ -1,1 +1,58 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Martian+Mono:wght@200&family=Oswald:wght@600&family=Poppins:wght@500&family=Quicksand:wght@700&display=swap');
+
+* {
+  caret-color: transparent;
+}
+
+body {
+  /* background-image: url('./assets/img/cover.jpg'); */
+  /* Replace 'your-image-url.jpg' with the path to your image */
+  margin: 0;
+  background-image: url('assets/img/background3.jpg');
+  background-size: cover; /* Cover the entire viewport */
+  background-repeat: no-repeat; 
+  background-attachment: fixed;
+  background-position: right;
+}
+
+:root {
+  --hover-border: #2ee08c;
+  --navbar-color: rgba(0, 0, 0, 0.8);
+  --link-body-bg-color-opacity: rgba(17, 16, 16, 0.7);
+  --temp-font-size: clamp(15px, .9vw, 40px);
+  --about-me-color: rgba(255, 255, 255, 0.08);
+}
+
+body::-webkit-scrollbar {
+  width: .5vw;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(27, 27, 27, 0.333);
+  border-radius: 100px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background-color: #161212;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #5555;
+}
+
+body::-webkit-scrollbar-track:hover {
+  background-color: #d3d3d3;
+}
+
+
+
+@media screen and (max-width: 1028px) {
+  body {
+    /* background-image: url('./assets/img/cover.jpg'); */
+    /* Replace 'your-image-url.jpg' with the path to your image */
+    background-image: url('assets/img/background4.jpg');
+    background-position: center;
+
+  }
+}

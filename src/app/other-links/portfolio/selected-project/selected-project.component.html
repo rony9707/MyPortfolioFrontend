@@ -1,0 +1,47 @@
+<img src="assets/svg/close1.svg" (click)="closeSelectedProject()" class="hamburger">
+<div class="selected-project-main" #mainContainer>
+
+  <div class="selected-project-left selected-project-sub-common">
+    <h1>{{selectedProject?.projectName}}</h1>
+    <div class="project-image">
+      <img [src]="selectedProject?.imageLink" class="portfolio-image" [alt]="selectedProject?.projectName">
+    </div>
+  </div>
+  <div class="selected-project-right selected-project-sub-common">
+
+    <div class="selected-project-information">
+      <p class="selected-project-information-heading" style="text-decoration: underline;">Github Link:</p>
+      <p><a href="{{selectedProject?.githubLink}}" target="_blank">{{selectedProject?.githubLink}}</a></p>
+    </div>
+
+    <div class="selected-project-information">
+      <p class="selected-project-information-heading" style="text-decoration: underline;">Project URL:</p>
+      <ng-container *ngIf="selectedProject?.projectURL === 'Not Hosted'; else hostedLink">
+        <p [ngClass]="{'selected-project-information-red': selectedProject?.projectURL === 'Not Hosted', 'selected-project-information-green': selectedProject?.projectURL !== 'Not Hosted' }"><span>{{selectedProject?.projectURL}}</span></p>
+      </ng-container>
+      <ng-template #hostedLink>
+        <p><a href="{{selectedProject?.projectURL}}" target="_blank">{{selectedProject?.projectURL}}</a></p>
+      </ng-template>
+    </div>
+    
+
+
+    <div class="selected-project-information">
+      <p class="selected-project-information-heading" style="text-decoration: underline;">Technologies Used:</p>
+      <p>{{selectedProject?.technologiesUsed}}</p>
+    </div>
+
+    <div class="selected-project-information">
+      <p class="selected-project-information-heading" style="text-decoration: underline;">Project Date:</p>
+      <p>{{selectedProject?.projectDate}}</p>
+    </div>
+
+    <div class="selected-project-information">
+      <p class="selected-project-information-heading" style="text-decoration: underline;">Progress:</p>
+      <p [ngClass]="{'selected-project-information-green': selectedProject?.progress === 'Completed', 'selected-project-information-yellow': selectedProject?.progress === 'Ongoing' }"
+      >{{selectedProject?.progress}}</p>
+    </div>
+
+    <p class="selected-project-information-heading">{{selectedProject?.description}}</p>
+  </div>
+</div>

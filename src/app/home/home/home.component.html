@@ -1,0 +1,31 @@
+<div class="home">
+  <div class="content" [ngClass]="{ 'blur': isToggle_phone_dropdown }">
+    
+    <app-name-and-about 
+    class="common-home"
+    [ngClass]="{ 'margin-animation': isToggle_phone_dropdown }">
+    </app-name-and-about>
+
+    <app-other-links
+    *ngIf="windowWidth > 1028" 
+    class="common-home"
+    [ngClass]="{ 'margin-animation': isToggle_phone_dropdown }">
+    </app-other-links>
+
+    <app-social-links
+    class="common-home"
+    [ngClass]="{ 'margin1': !(windowWidth > 1028) , 'margin-animation': isToggle_phone_dropdown }">
+    </app-social-links>
+  </div>
+
+  <app-phone-dropdown *ngIf="windowWidth < 1028" [phoneDropdown]="isToggle_phone_dropdown">
+  </app-phone-dropdown>
+
+  <ng-container *ngIf="windowWidth < 1028">
+    <img *ngIf="!isToggle_phone_dropdown" src="assets/svg/hamburger.svg" (click)="toggleDropDown()" class="hamburger"
+      alt="hamburger_SVG">
+    <img *ngIf="isToggle_phone_dropdown" src="assets/svg/close1.svg" (click)="toggleDropDown()" class="hamburger"
+      alt="hamburger_SVG">
+  </ng-container>
+
+</div>

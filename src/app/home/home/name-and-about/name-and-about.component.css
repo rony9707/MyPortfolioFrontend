@@ -1,0 +1,32 @@
+.full-name {
+  color: white;
+  font-size: clamp(30px, 3vw, 60px);
+  margin-bottom: 15px;
+  transition: .5s;
+}
+
+.intro {
+  /* border: 1px solid red; */
+  color: rgb(212, 212, 212);
+  font-size: clamp(15px, 1.7vw, 60px);
+  margin-bottom: 25px;
+  transition: .5s;
+}
+
+.dev {
+  color: white;
+  border-bottom: 2px solid var(--hover-border);
+}
+
+.india {
+  background: linear-gradient(to bottom, #ff9933, #fff, #138808);
+  background-clip: text;
+  color: transparent;
+}
+
+@media(max-width:1028px) {
+  .intro {
+    display: grid;
+    place-items: center;
+  }
+}

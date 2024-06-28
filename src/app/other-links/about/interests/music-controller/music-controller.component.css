@@ -1,0 +1,10 @@
+.interst_svg {
+  width: 30px;
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease; 
+}
+
+.interst_svg:hover {
+  transform: rotate(180deg);
+}

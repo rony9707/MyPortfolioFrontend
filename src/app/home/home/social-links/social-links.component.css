@@ -1,0 +1,52 @@
+:host {
+  margin-top: 25px; /* or whatever the default margin is */
+}
+
+.socials {
+  display: flex;
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+
+.no-margin {
+  margin-top: 0 !important;
+}
+
+.socials a i {
+  font-size: 1rem;
+  color: white;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #474747;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 1s background-color;
+}
+
+
+.socials a {
+  margin: 0;
+  text-decoration: none;
+}
+
+.socials a:not(:first-child) {
+  margin-left: 10px;
+}
+
+.socials a i:hover {
+  background-color: var(--hover-border);
+  color:black;
+  transition: 1s;
+}
+
+
+
+@media(max-width:1028px) {
+  .socials {
+    margin-top: 0px;
+  }
+  
+}

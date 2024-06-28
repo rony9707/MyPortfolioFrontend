@@ -1,0 +1,58 @@
+:host{
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  gap: 25px;
+  font-family: 'Martian Mono', monospace;
+  font-family: 'Oswald', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  font-family: 'Quicksand', sans-serif;
+  margin-top: 20px;
+}
+
+.contactme-info{
+  height: 80px;
+  background-color: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  padding: 15px 0px 15px 0px;
+}
+
+.contactme-logo{
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  background-color: rgba(255, 255, 255, 0.08);
+  margin: 0px 10px 0px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 1s;
+}
+
+.contactme-svg{
+  width: 45px;
+}
+
+.contactme-sub-info{
+  margin-left: 10px;
+}
+
+.contactme-sub-info-heading{
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 7px;
+}
+/* @sugarpeachcake */
+
+.contactme-info:hover .contactme-logo {
+  transform: scale(1.4);
+  transition: 1s;
+}
+
+
+@media (max-width: 650px) {
+  :host {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

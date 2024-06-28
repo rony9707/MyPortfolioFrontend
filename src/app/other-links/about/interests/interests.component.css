@@ -1,0 +1,311 @@
+.interests-main {
+  cursor: default;
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.interest {
+  background-color: var(--about-me-color);
+  padding: 30px 0px 30px 30px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.interest_music {
+  background-color: var(--about-me-color);
+  padding: 30px 5px 30px 30px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.music-main-overlay{
+  height: 0%;
+  width: 100%;
+  background-color: #45aaf2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+
+.interest-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+}
+
+.interest-description {
+  margin-left: 20px;
+}
+
+.interst_svg {
+  width: 30px;
+}
+
+.interst_svg_music {
+  cursor: pointer;
+  width: 30px;
+  margin-left: 5px;
+  transition: 0.3s ease; /* Adding transition for smooth rotation */
+}
+
+.interst_svg_music:hover {
+  transform: rotate(10deg); /* Rotating 10 degrees on hover */
+}
+
+
+.interest:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  transition: .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.interest1:hover {
+  background-image: url('.././../../../assets/img/interests/anime2.jpg');
+}
+
+.interest2:hover {
+  background-image: url('.././../../../assets/img/interests/football.png');
+}
+
+.interest4:hover {
+  background-image: url('.././../../../assets/img/interests/code.jpg');
+}
+
+.interest5:hover {
+  background-image: url('.././../../../assets/img/interests/games.jpg');
+}
+
+.interest6:hover {
+  background-image: url('.././../../../assets/img/interests/cat.JPG');
+}
+
+.interest7:hover {
+  background-image: url('.././../../../assets/img/interests/food.JPG');
+}
+
+.interest8:hover {
+  background-image: url('.././../../../assets/img/interests/travelling.jpeg');
+}
+
+
+.music-sub {
+  display: flex;
+  align-items: center;
+}
+
+
+.volume-slider {
+  margin-left: 10px;
+  width: 130px;
+  background: var(--hover-border);
+  /* Background color of the slider track */
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.volume-slider:hover {
+  border-color: #9f8970;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 1);
+}
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  /* Width of the thumb */
+  height: 15px;
+  /* Height of the thumb */
+  background: #3a3a3a;
+  /* Color of the thumb */
+  border-radius: 50%;
+  /* Make it a circle */
+  cursor: pointer;
+}
+
+.volume-slider::-moz-range-thumb {
+  width: 15px;
+  /* Width of the thumb for Firefox */
+  height: 15px;
+  /* Height of the thumb for Firefox */
+  background: #3a3a3a;
+  /* Color of the thumb for Firefox */
+  border-radius: 50%;
+  /* Make it a circle for Firefox */
+  cursor: pointer;
+}
+
+
+.blink-element {
+  position: relative;
+  animation: blink .5s infinite;
+  transition: background-color 0.5s ease-in-out;
+}
+
+
+
+/* Define keyframes for the blink animation */
+@keyframes blink {
+  0% {
+    background-color: var(--about-me-color);
+  }
+
+  50% {
+    background-color: rgba(255, 255, 255, 0.12);
+  }
+
+  100% {
+    background-color: var(--about-me-color);
+  }
+}
+
+
+/* New animation when playSongStatus is true */
+.playing-element {
+  animation: pulse 1s infinite;
+  color: black;
+}
+
+/* Define keyframes for the pulse animation */
+@keyframes pulse {
+  0% {
+    background-color: #FFDAB9;
+    /* PeachPuff */
+    transform: scale(1);
+  }
+
+  20% {
+    background-color: #FFC0CB;
+    /* Pink */
+  }
+
+  40% {
+    background-color: #FFA07A;
+    /* LightSalmon */
+  }
+
+  50% {
+    transform: scale(0.98);
+  }
+
+  60% {
+    background-color: #FF8C00;
+    /* DarkOrange */
+  }
+
+  80% {
+    background-color: #FF7F50;
+    /* Coral */
+  }
+
+  100% {
+    background-color: #FF6347;
+    /* Tomato */
+    transform: scale(1);
+  }
+}
+
+.music-progress-bar {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  height: 10px;
+  /* Increase the height */
+  background-color: #ddd;
+  /* Background color */
+  border-radius: 10px;
+  /* Rounded corners */
+}
+
+.music-progress-bar:hover {
+  border-color: #9f8970;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 1);
+}
+
+
+.music-progress-bar::-webkit-progress-bar {
+  background-color: transparent;
+  /* Transparent background */
+}
+
+.music-progress-bar::-webkit-progress-value {
+  background-color: var(--hover-border);
+  /* Progress bar color */
+  border-radius: 5px;
+  /* Rounded corners */
+}
+
+.music-progress-bar::-moz-progress-bar {
+  background-color: var(--hover-border);
+  /* Progress bar color */
+  border-radius: 5px;
+  /* Rounded corners */
+}
+
+
+
+/* Media query for 2 columns */
+@media (max-width: 1284px) {
+  .interest_music {
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0px 5px 0px 30px;
+  }
+
+
+  .music-sub {
+    margin-bottom: 0px;
+  }
+
+  .volume-slider {
+    margin-top: 5px;
+    margin-left: 0px;
+    margin-bottom: 15px;
+    width: 200px;
+  }
+
+  .interst_svg_music {
+    margin-bottom: 15px;
+  }
+}
+
+/* Media query for 2 columns */
+@media (max-width: 1172px) {
+  .interests-main {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+
+/* Media query for 1 column */
+@media (max-width: 506px) {
+  .interests-main {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .interest_music {
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px 5px 30px 30px;
+  }
+
+}

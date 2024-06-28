@@ -1,0 +1,14 @@
+.mat {
+  background-color: red !important;
+}
+
+
+@keyframes moveUpDown {
+  0% { transform: translateY(-100%); }
+  50% { transform: translateY(0%); }
+  100% { transform: translateY(-100%); }
+}
+
+.move-up-down {
+  animation: moveUpDown 2s infinite; /* Animation duration: 2s, repeats infinitely */
+}

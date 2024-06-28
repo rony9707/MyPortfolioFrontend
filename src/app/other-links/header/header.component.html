@@ -1,0 +1,17 @@
+<div class="navbar-main" >
+<!-- <div class="navbar-main"> -->
+  <div class="navbar-main-common name">
+    Agnibha Chowdhury
+  </div>
+  <app-other-links *ngIf="windowWidth > 1028"></app-other-links>
+
+  <ng-container *ngIf="windowWidth < 1028">
+    <img *ngIf="!isToggle_phone_dropdown" src="assets/svg/hamburger.svg" (click)="toggleDropDown()" class="hamburger"
+      alt="hamburger_SVG">
+    <img *ngIf="isToggle_phone_dropdown" src="assets/svg/close1.svg" (click)="toggleDropDown()" class="hamburger"
+      alt="hamburger_SVG">
+  </ng-container>
+</div>
+
+<app-phone-dropdown class="phoneDropDown_header" *ngIf="windowWidth < 1028" [phoneDropdown]="isToggle_phone_dropdown">
+</app-phone-dropdown>

@@ -1,0 +1,8 @@
+<!-- music-controller.component.html -->
+<div>
+  <img *ngIf="musicData?.playSongStatus" class="interst_svg" src="assets\svg_interest\pause.svg">
+  <img *ngIf="!musicData?.playSongStatus" class="interst_svg" src="assets\svg_interest\play.svg">
+  <audio #audioPlayer controls hidden [src]="musicData?.songName" (timeupdate)="updateProgress()">
+    Your browser does not support the audio element.
+  </audio>
+</div>

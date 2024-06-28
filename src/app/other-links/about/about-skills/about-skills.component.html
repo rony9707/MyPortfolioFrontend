@@ -1,0 +1,7 @@
+<div class="skills" #skillsMain>
+  <ng-container *ngFor="let metricKey of getMetricKeys();">
+    <app-skill-template 
+    [skill]="skills[metricKey]"
+    ></app-skill-template>
+  </ng-container>
+</div>

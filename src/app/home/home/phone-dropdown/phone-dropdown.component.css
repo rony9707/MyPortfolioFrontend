@@ -1,0 +1,15 @@
+.links-phone {
+  position: fixed;
+  border: 1px solid rgba(210, 210, 210, 0.9);
+  width: 95%;
+  height: 90vh;
+  /* Adjusted 'dvh' to 'vh' */
+  top: 65px;
+  /* Changed from '53%' to '100px' */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #2b2b2b;
+  opacity: .9;
+  margin-top: 10px;
+  z-index: 1;
+}

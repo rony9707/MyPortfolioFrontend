@@ -1,0 +1,114 @@
+.common-home.links .links-button:not(:first-child) {
+  margin-left: 20px;
+}
+
+
+.links-button {
+  position: relative;
+  border: none;
+  background-color: transparent;
+  font-size: 1em;
+  color: rgb(212, 212, 212);
+  cursor: pointer;
+  transition: .5s;
+  text-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+  font-family: 'Martian Mono', monospace;
+  font-family: 'Oswald', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.links-button::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--hover-border);
+  transition: width 0.5s ease-in-out;
+}
+
+
+.links-button:hover {
+  color: rgb(255, 255, 255);
+}
+
+.links-button:hover::before {
+  width: 50%;
+}
+
+
+.current-page::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--hover-border);
+  width: 50%;
+}
+
+.current-page1 {
+  color: rgb(255, 255, 255);
+}
+
+@media(max-width:1028px) {
+
+  .common-home.links .links-button {
+    margin-left: 20px;
+  }
+
+  .links-button {
+    position: relative;
+    border: none;
+    background-color: transparent;
+    font-size: clamp(25px, 2vw, 80px);
+    color: rgb(212, 212, 212);
+    cursor: pointer;
+    transition: .5s;
+    margin: 30px 0px 20px 15px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    text-shadow: unset;
+  }
+
+  .links-button::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--hover-border);
+    transition: width 0.5s ease-in-out;
+  }
+
+
+  .links-button:hover {
+    color: rgb(255, 255, 255);
+  }
+
+  .links-button:hover::before {
+    width: 50%;
+  }
+
+  .current-page::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--hover-border);
+    width: 50%;
+  }
+  
+  .current-page1 {
+    color: rgb(255, 255, 255);
+  }
+
+
+}
