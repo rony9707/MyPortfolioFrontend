@@ -14,6 +14,10 @@ export class AboutMainTextComponent implements OnInit {
     Currently, I'm working with Capgemini in Mumbai. 
     I'm passionate about creating efficient and innovative software solutions and front end design.`;
 
+  aboutMeShort1 = `Respectful self-motivator gifted at finding reliable solutions for software issues. 
+  Fluent in English, Hindi and Bengali and accustomed to working with cross-cultural, global teams, 
+  Excellent team player with a positive attitude.`
+
   aboutMeInfo: AboutMeInfo = {
     Birthday: new Date('1997-02-07'),
     Website: window.location.origin,

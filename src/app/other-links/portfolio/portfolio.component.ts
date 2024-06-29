@@ -84,9 +84,9 @@ export class PortfolioComponent implements OnInit {
     Project2: {
       projectName: 'My Portfolio',
       imageLink: 'assets/img/myProjects/MyResume.JPG',
-      progress: 'Ongoing',
-      githubLink: 'https://github.com/rony9707/myMyself_F',
-      projectURL: 'https://bymyself01-b55df.web.app',
+      progress: 'Completed',
+      githubLink: 'https://github.com/rony9707/MyPortfolioFrontend',
+      projectURL: 'https://my-portfolio-1b0d8.web.app',
       description: 'This project is my portfolio website which has all my skills and my basic about me and has the ways to contact me.',
       technologiesUsed: 'Angular, HTML, CSS, TS, Node js, Express js, Mongo DB',
       projectDate: '08/06/2024'

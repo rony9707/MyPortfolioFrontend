@@ -24,8 +24,8 @@ export class DownloadResumeComponent implements OnInit {
     setTimeout(() => {
       // Create an anchor element and set the href to the path of the file
       const link = document.createElement('a');
-      link.href = 'assets/resume/resume.7z';
-      link.download = 'resume.7z';
+      link.href = 'assets/resume/Agnibha_Chowdhury_Resume.7z';
+      link.download = 'Agnibha_Chowdhury_Resume.7z';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -43,9 +43,9 @@ export class DownloadResumeComponent implements OnInit {
         willClose: () => {
           // Show email input prompt after success message closes
           swal.fire({
-            title: "Input email address",
+            title: "Your email address",
             input: "email",
-            inputLabel: "Your email address",
+            inputLabel: "Enter your email address for password",
             inputPlaceholder: "Enter your email address",
             showCancelButton: true,
             confirmButtonText: 'Submit',

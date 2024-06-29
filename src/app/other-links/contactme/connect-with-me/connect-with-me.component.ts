@@ -23,9 +23,9 @@ export class ConnectWithMeComponent implements OnInit {
   // Form Group and Form Control Validators
   sendMessage = new FormGroup({
     fullname: new FormControl('', [Validators.required]),
-    email: new FormControl('chowdhury.agnibha.98@gmail.com', [Validators.required, Validators.email]),
-    subject: new FormControl('asrfwear', [Validators.required]),
-    message: new FormControl('werwaerwaerwaerwaerwerwer', [Validators.required])
+    email: new FormControl('', [Validators.required, Validators.email]),
+    subject: new FormControl('', [Validators.required]),
+    message: new FormControl('', [Validators.required])
   });
 
   sendMessageEmail() {

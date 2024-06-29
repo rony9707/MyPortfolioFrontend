@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.data.currentValue.subscribe(message => this.blurToggle=message)
+    //this.data.currentValue.subscribe(message => this.blurToggle=message)
     this.data.currentValue2.subscribe(message => this.isToggle_phone_dropdown=message)
   }
 
