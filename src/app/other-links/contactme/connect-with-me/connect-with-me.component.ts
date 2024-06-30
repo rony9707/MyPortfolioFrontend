@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { Component, ElementRef, OnInit, Output, QueryList, ViewChild, ViewChildren, EventEmitter, AfterViewChecked } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { BackendServiceService } from 'src/app/services/backend-service.service';
 import swal from 'sweetalert2';
@@ -8,10 +8,15 @@ import swal from 'sweetalert2';
   templateUrl: './connect-with-me.component.html',
   styleUrls: ['./connect-with-me.component.css']
 })
-export class ConnectWithMeComponent implements OnInit {
+export class ConnectWithMeComponent implements OnInit, AfterViewChecked {
 
   @ViewChildren('inputField') inputFields: QueryList<ElementRef> | undefined;
   @ViewChild('ConnectMeButton') ConnectMeButton: ElementRef | undefined;
+
+  @Output()
+  DataInForm: EventEmitter<object> = new EventEmitter<object>();
+  @Output()
+  anyFieldTouchedStatus: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   loading: boolean = false;
 
@@ -19,6 +24,13 @@ export class ConnectWithMeComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  ngAfterViewChecked(): void {
+    //Sent Formdata to Parent Compoent
+    this.DataInForm.emit(this.sendMessage.value)//Sending data to parent compoent
+    this.touchedOrNot();
+  }
+
 
   // Form Group and Form Control Validators
   sendMessage = new FormGroup({
@@ -28,13 +40,26 @@ export class ConnectWithMeComponent implements OnInit {
     message: new FormControl('', [Validators.required])
   });
 
+
+  // canExit(): boolean {
+  //   if (this.sendMessage.value.fullname === '' ||
+  //       this.sendMessage.value.email === '' ||
+  //       this.sendMessage.value.subject === '' ||
+  //       this.sendMessage.value.message === '') {
+  //     return confirm("You have unsaved changes. Do you want to navigate away?");
+  //   } else {
+  //     return true;
+  //   }
+  // }
+
   sendMessageEmail() {
+
 
     //Handle Button Click Effect Here
     if (this.ConnectMeButton) {
       this.ConnectMeButton.nativeElement.classList.add('connectme-button-click-animation')
       setTimeout(() => {
-        if(this.ConnectMeButton){
+        if (this.ConnectMeButton) {
           this.ConnectMeButton.nativeElement.classList.remove('connectme-button-click-animation')
         }
       }, 200)
@@ -117,6 +142,19 @@ export class ConnectWithMeComponent implements OnInit {
     } else {
       event.preventDefault();
       return false;
+    }
+  }
+
+  fieldisTouched=false
+
+  touchedOrNot(){
+    if (this.inputFields) {
+      this.inputFields.forEach((field: ElementRef) => {
+        field.nativeElement.addEventListener('blur', () => {
+          this.fieldisTouched = true;
+          this.anyFieldTouchedStatus.emit(this.fieldisTouched); // Emit the status if necessary
+        });
+      });
     }
   }
 }
