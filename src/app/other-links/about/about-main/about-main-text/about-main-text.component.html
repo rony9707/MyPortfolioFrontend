@@ -6,7 +6,7 @@
   <div class="about-main-text-table about-main-text-common">
     <ul class="b" style="padding:0; margin:0; ">
       <li><span>Birthday:</span>{{aboutMeInfo.Birthday | date: 'MMMM dd, y'}}</li>
-      <li><span>Website:</span>{{aboutMeInfo.Website}} <button (click)="copyToClipboard(aboutMeInfo.Website)" class="about-main-text-copyToClipboard"><i class="fa fa-clone"></i></button></li>
+      <li><span>Website:</span><a class="website-name-css" [href]="aboutMeInfo.Website" target="_target">{{aboutMeInfo.Website}}</a> <button (click)="copyToClipboard(aboutMeInfo.Website)" class="about-main-text-copyToClipboard"><i class="fa fa-clone"></i></button></li>
       <li><span>Phone:</span>{{aboutMeInfo.Phone}} <button (click)="copyToClipboard(aboutMeInfo.Phone)" class="about-main-text-copyToClipboard"><i class="fa fa-clone"></i></button> </li>
       <li><span>City:</span>{{aboutMeInfo.Location}}</li>
     </ul>

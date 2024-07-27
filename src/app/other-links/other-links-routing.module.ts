@@ -4,6 +4,7 @@ import { AboutComponent } from './about/about.component';
 import { ResumeComponent } from './resume/resume.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ContactmeComponent } from './contactme/contactme.component';
+import { AuthGuardService } from '../services/authguard.service';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   {
     path: 'contactme', // Matches '/contactme' directly
     component: ContactmeComponent,
+    canDeactivate:[AuthGuardService]
   }
 ];
 

@@ -68,11 +68,6 @@ import { ConnectWithMeComponent } from './contactme/connect-with-me/connect-with
     ReactiveFormsModule
   ],
   exports:[
-    AboutComponent,
-    ContactmeComponent,
-    HeaderComponent,
-    PortfolioComponent,
-    ResumeComponent
   ]
 })
 export class OtherLinksModule { }
