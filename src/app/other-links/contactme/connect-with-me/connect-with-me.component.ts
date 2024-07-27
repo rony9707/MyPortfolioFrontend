@@ -89,6 +89,7 @@ export class ConnectWithMeComponent implements OnInit, AfterViewChecked {
           });
 
           this.loading = false;
+          this.sendMessage.reset();
 
         },
         (err) => {

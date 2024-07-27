@@ -110,6 +110,20 @@ export class PortfolioComponent implements OnInit {
       description: 'My Final Year Project in college. Its not that good but it is added in this resume to show how much I have improved',
       technologiesUsed: 'HTML, CSS, JS, PHP, MySQL',
       projectDate: '01/06/2019'
+    },
+    Project5: {
+      projectName: 'My Customizable Project Navigator V2.0',
+      imageLink: 'assets/img/myProjects/MyProjectNavigatorV2.JPG',
+      progress: 'Completed',
+      githubLink: 'https://github.com/rony9707/projectNavigator',
+      projectURL: 'https://myprojectnavigator.web.app',
+      description: `
+      This project builds upon the foundation of Version 1, offering significant improvements 
+      for enhanced customization and ease of use. It is designed to be more accessible, 
+      allowing anyone to tailor it to their specific needs effortlessly.
+      `,
+      technologiesUsed: 'HTML, CSS, TS, Angular, Material UI',
+      projectDate: '14/07/2024'
     }
   };
 
