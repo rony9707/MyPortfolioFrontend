@@ -11,7 +11,7 @@
   </div>
 
   <div
-    [ngClass]="{'interest_music': true, 'blink-element': !musicData.playSongStatus, 'playing-element': musicData.playSongStatus}"
+    [ngClass]="{'interest_music': true, 'blink-element': !playSongStatus, 'playing-element': playSongStatus}"
     class="music-main-div" (click)="playSongs()">
   
     <div class="music-main-overlay" 
@@ -19,23 +19,19 @@
 
     <div class="music-sub">
       <div class="interest-logo">
-        <!-- Music Child Component -->
-        <app-music-controller 
-        [musicData]="musicData"
-        (songProgress)="progress($event)"
-        >
-        </app-music-controller>
+        <img *ngIf="playSongStatus" class="interst_svg" src="assets\svg_interest\pause.svg">
+        <img *ngIf="!playSongStatus" class="interst_svg" src="assets\svg_interest\play.svg">
       </div>
       <div class="interest-description">Music</div>
     </div>
     <div class="music-sub">
-      <input [@fadeInOut] *ngIf="musicData.playSongStatus" #songSlider type="range" value={{musicData.volumeLevel}}
+      <input [@fadeInOut] *ngIf="playSongStatus" #songSlider type="range" [value]="songService.volume"
         class="volume-slider" min="0" max="100" (input)="logRangeValue($event)" (click)="stopClickPropagation($event)">
-      <img [@fadeInOut] *ngIf="musicData.playSongStatus" (click)="nextSong()" class="interst_svg_music"
+      <img [@fadeInOut] *ngIf="playSongStatus" (click)="nextSong()" class="interst_svg_music"
         src="assets\svg_interest\next.svg" (click)="stopClickPropagation($event)">
     </div>
 
-    <progress [@fadeInOut]  *ngIf="musicData.playSongStatus" class="music-progress-bar" 
+    <progress [@fadeInOut]  *ngIf="playSongStatus" class="music-progress-bar" 
     [value]="songProgress" max="100" 
     (click)="seekToPosition($event)" 
     (click)="stopClickPropagation($event)"></progress>
