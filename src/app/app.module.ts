@@ -7,7 +7,9 @@ import { HomeModule } from './home/home.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS, HttpClientModule  } from '@angular/common/http';
 import { InterceptorService } from './services/interceptor.service';
-
+import { MatSliderModule } from '@angular/material/slider';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {DragDropModule} from '@angular/cdk/drag-drop'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +20,10 @@ import { InterceptorService } from './services/interceptor.service';
     CommonModule,
     BrowserAnimationsModule,
     HomeModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSliderModule,
+    MatProgressBarModule,
+    DragDropModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi:true }],
   bootstrap: [AppComponent]

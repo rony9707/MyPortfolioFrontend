@@ -17,7 +17,6 @@ import { MetricTemplateComponent } from './about/about-metrics/metric-template/m
 import { SkillTemplateComponent } from './about/about-skills/skill-template/skill-template.component';
 import { AboutSkillsComponent } from './about/about-skills/about-skills.component';
 import { InterestsComponent } from './about/interests/interests.component';
-import { MusicControllerComponent } from './about/interests/music-controller/music-controller.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { ResumeSummaryComponent } from './resume/resume-summary/resume-summary.component';
@@ -49,7 +48,6 @@ import { ConnectWithMeComponent } from './contactme/connect-with-me/connect-with
     AboutSkillsComponent,
     SkillTemplateComponent,
     InterestsComponent,
-    MusicControllerComponent,
     FooterComponent,
     ResumeSummaryComponent,
     ResumeEducationComponent,

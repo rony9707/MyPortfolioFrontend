@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { ExtraOptions, PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home/home.component';
 
 const routes: Routes = [
@@ -14,8 +14,16 @@ const routes: Routes = [
   // Other routes in your application
 ];
 
+const routerOptions: ExtraOptions = {
+  scrollPositionRestoration: 'enabled',
+  anchorScrolling: 'enabled',
+  scrollOffset: [0, 64], // adjust for fixed headers if necessary,
+  enableTracing: false,
+  preloadingStrategy: PreloadAllModules
+};
+
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled', enableTracing: false, preloadingStrategy: PreloadAllModules })],
+  imports: [RouterModule.forRoot(routes,routerOptions )],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

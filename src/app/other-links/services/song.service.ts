@@ -13,10 +13,14 @@ export class SongService {
   private currentSongIndex = 0;
 
   songProgress: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+  timer: BehaviorSubject<string> = new BehaviorSubject<string>('0:00');
+
+  private timerInterval: any;
 
   constructor() {
     this.audio.addEventListener('timeupdate', () => {
       this.updateProgress();
+      this.updateTimer();
     });
   }
 
@@ -34,8 +38,10 @@ export class SongService {
         this.audio.src = this.musicUrl;
       }
       this.audio.play();
+      this.startTimer();
     } else {
       this.audio.pause();
+      this.stopTimer();
     }
   }
 
@@ -50,6 +56,25 @@ export class SongService {
       const duration = this.audio.duration;
       const progress = (currentTime / duration) * 100;
       this.songProgress.next(isNaN(progress) ? 0 : progress);
+    }
+  }
+
+  updateTimer() {
+    if (this.audio && this.audio.currentTime) {
+      const currentTime = this.audio.currentTime;
+      const minutes = Math.floor(currentTime / 60);
+      const seconds = Math.floor(currentTime % 60);
+      this.timer.next(`${minutes}:${seconds < 10 ? '0' : ''}${seconds}`);
+    }
+  }
+
+  startTimer() {
+    this.timerInterval = setInterval(() => this.updateTimer(), 1000);
+  }
+
+  stopTimer() {
+    if (this.timerInterval) {
+      clearInterval(this.timerInterval);
     }
   }
 

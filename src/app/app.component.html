@@ -1,1 +1,19 @@
+<div *ngIf="MusicDiv && songService.music_status" class="music-div-bl music-common" cdkDrag>
+  <div class="audio-visualiser-div">
+  </div>
+  <div class="audio-control-div">
+    <img class="next_song" src="assets\next_song.svg" (click)="nextSong()" (click)="stopClickPropagation($event)"
+      alt="Img_next_song">
+    <mat-slider thumbLabel (input)="logRangeValue($event)" (click)="stopClickPropagation($event)" class="volume-slider"
+      min="1" max="100" step="1" [value]="songService.volume"></mat-slider>
+    <mat-progress-bar mode="determinate" class="seekto-slider" (click)="stopClickPropagation($event)"
+      [value]="songProgress" max="100" (click)="seekToPosition($event)"></mat-progress-bar>
+      <div class="timer-div">{{timer}}</div>
+  </div>
+
+  <img class="goto-song" src="assets\go_to_song.svg" routerLink="/about" (click)="goToSongs()" alt="Img_go_to_song">
+  <img class="drag_Handle" src="assets\dragHandle.svg"  alt="Drag Handle" cdkDragHandle>
+</div>
+
+
 <router-outlet></router-outlet>
