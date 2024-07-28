@@ -1,10 +1,11 @@
 import { AfterViewInit, Component, ElementRef, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { Subscription, interval } from 'rxjs';
 import { musicData } from './interests.interface';
-import { MusicControllerComponent } from './music-controller/music-controller.component';
 import { trigger, transition, style, animate, state } from '@angular/animations';
 import { BackendServiceService } from 'src/app/services/backend-service.service';
 import { SongService } from '../../services/song.service';
+import { ActivatedRoute } from '@angular/router';
+import { DataTransferSongService } from 'src/app/services/data-transfer-song.service';
 
 @Component({
   selector: 'app-interests',
@@ -32,10 +33,11 @@ import { SongService } from '../../services/song.service';
     ])
   ]
 })
-export class InterestsComponent implements OnInit, OnDestroy {
-  constructor(private backendServer: BackendServiceService, public songService: SongService) { }
-
-  @ViewChild(MusicControllerComponent) MusicControllerComponent?: MusicControllerComponent;
+export class InterestsComponent implements OnInit, OnDestroy, AfterViewInit {
+  constructor(
+    private backendServer: BackendServiceService,
+    public songService: SongService,
+    private dataService: DataTransferSongService) { }
 
   songProgress: number = 0;
   animationState: string = 'initial';
@@ -56,6 +58,17 @@ export class InterestsComponent implements OnInit, OnDestroy {
     this.progressSubscription = this.songService.songProgress.subscribe(progress => {
       this.songProgress = progress;
     });
+
+
+
+  }
+
+  ngAfterViewInit(): void {
+    const data = this.dataService.getData();
+    if (data === 'fromsong') {
+      document.getElementById('musicsection')?.scrollIntoView({ behavior: 'smooth' })
+    }
+    this.dataService.clearData(); 
   }
 
   ngOnDestroy(): void {
@@ -98,8 +111,11 @@ export class InterestsComponent implements OnInit, OnDestroy {
     //const { offsetWidth, offsetLeft } = progressElement;
     //const clickX = event.pageX - offsetLeft;
     const seekPosition = (event.offsetX / progressElement.offsetWidth) * 100;
+    console.log(event)
+    console.log(progressElement)
     if (!isNaN(seekPosition)) { // Check if the click event originated from the progress bar
       this.songProgress = seekPosition;
+      console.log(seekPosition)
       this.songService.seekToPosition(seekPosition);;
     }
   }
