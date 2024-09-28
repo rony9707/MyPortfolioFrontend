@@ -9,19 +9,19 @@ import { AuthGuardService } from '../services/authguard.service';
 
 const routes: Routes = [
   {
-    path: 'about', // Matches '/about' directly
+    path: 'about', 
     component: AboutComponent,
   },
   {
-    path: 'resume', // Matches '/resume' directly
+    path: 'resume', 
     component: ResumeComponent,
   },
   {
-    path: 'portfolio', // Matches '/portfolio' directly
+    path: 'portfolio', 
     component: PortfolioComponent,
   },
   {
-    path: 'contactme', // Matches '/contactme' directly
+    path: 'contactme', 
     component: ContactmeComponent,
     canDeactivate:[AuthGuardService]
   }

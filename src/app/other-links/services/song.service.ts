@@ -5,10 +5,10 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class SongService {
-  private audio = new Audio();
+  public audio = new Audio();
   music_status = false;
   musicUrl = '';
-  volume = 70;
+  volume = 50;
   private songLinks: string[] = [];
   private currentSongIndex = 0;
 
@@ -22,6 +22,13 @@ export class SongService {
       this.updateProgress();
       this.updateTimer();
     });
+    this.audio.addEventListener('ended', () => {
+      this.changeSong(true); // Automatically play the next song
+    });
+  }
+
+  getAudioElement(): HTMLAudioElement {
+    return this.audio;
   }
 
   setSongs(songLinks: string[]) {
@@ -33,6 +40,7 @@ export class SongService {
 
   toggleMusic(musicStatus: boolean) {
     this.music_status = musicStatus;
+    this.audio.volume = this.volume / 100;
     if (this.music_status) {
       if (this.musicUrl && this.audio.src !== this.musicUrl) {
         this.audio.src = this.musicUrl;

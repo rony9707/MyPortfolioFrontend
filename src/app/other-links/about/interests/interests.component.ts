@@ -111,11 +111,10 @@ export class InterestsComponent implements OnInit, OnDestroy, AfterViewInit {
     //const { offsetWidth, offsetLeft } = progressElement;
     //const clickX = event.pageX - offsetLeft;
     const seekPosition = (event.offsetX / progressElement.offsetWidth) * 100;
-    console.log(event)
-    console.log(progressElement)
+
     if (!isNaN(seekPosition)) { // Check if the click event originated from the progress bar
       this.songProgress = seekPosition;
-      console.log(seekPosition)
+
       this.songService.seekToPosition(seekPosition);;
     }
   }
