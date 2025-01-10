@@ -22,6 +22,10 @@ export class SongService {
       this.updateProgress();
       this.updateTimer();
     });
+
+    this.audio.addEventListener('ended', () => {
+      this.changeSong(true); // Automatically go to the next song
+    });
   }
 
   setSongs(songLinks: string[]) {
@@ -32,15 +36,21 @@ export class SongService {
   }
 
   toggleMusic(musicStatus: boolean) {
-    this.music_status = musicStatus;
-    if (this.music_status) {
+    if (musicStatus) {
+      // If the music is supposed to start playing
       if (this.musicUrl && this.audio.src !== this.musicUrl) {
         this.audio.src = this.musicUrl;
       }
-      this.audio.play();
-      this.startTimer();
+      this.audio.play().then(() => {
+        this.music_status = musicStatus;
+        this.startTimer();
+      }).catch(error => {
+        console.error('Error playing audio:', error);
+      });
     } else {
+      // If the music is supposed to stop
       this.audio.pause();
+      this.music_status = musicStatus;
       this.stopTimer();
     }
   }

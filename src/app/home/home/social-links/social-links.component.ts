@@ -1,9 +1,10 @@
-import { Component, Input, OnInit, ViewChildren, QueryList, ElementRef, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChildren, QueryList, ElementRef, AfterViewInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-social-links',
   templateUrl: './social-links.component.html',
-  styleUrls: ['./social-links.component.css']
+  styleUrls: ['./social-links.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SocialLinksComponent implements OnInit, AfterViewInit {
 

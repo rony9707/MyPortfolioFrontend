@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { ShareDataBasicService } from 'src/app/services/share-data-basic.service';
 
@@ -17,7 +17,8 @@ import { ShareDataBasicService } from 'src/app/services/share-data-basic.service
         animate('0.3s cubic-bezier(.47,1.35,.57,1.16)')
       ])
     ])
-  ]
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PhoneDropdownComponent implements OnInit {
 

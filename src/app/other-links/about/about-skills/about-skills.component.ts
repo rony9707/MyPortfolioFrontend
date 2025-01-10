@@ -28,16 +28,16 @@ export class AboutSkillsComponent implements OnInit {
       description: 'Angular',
       percentage: 80,
     },
-    excel: {
-      description: 'Excel',
+    powershell: {
+      description: 'Powershell',
       percentage: 60,
     },
-    MySQL: {
-      description: 'My SQL',
+    MSSQL: {
+      description: 'MSSQL / PLSQL',
       percentage: 90,
     },
-    Postman: {
-      description: 'Postman',
+    RestApi: {
+      description: 'RestApi',
       percentage: 80,
     },
     node: {

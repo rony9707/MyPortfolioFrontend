@@ -1,4 +1,4 @@
-import { Component, Input, ElementRef, ViewChild, AfterViewInit, ChangeDetectorRef } from '@angular/core';
+import { Component, Input, ElementRef, ViewChild, AfterViewInit, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 import { trigger, transition, style, animate, state } from '@angular/animations';
 import { skillData } from '../about-skill.interface';
 
@@ -42,6 +42,7 @@ export class SkillTemplateComponent implements AfterViewInit {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
+          
           // Trigger animation
           setTimeout(() => {
             this.animationState = 'end';

@@ -2,9 +2,9 @@ export interface skills {
   html: skillData;
   css: skillData;
   angular: skillData;
-  excel: skillData;
-  MySQL: skillData;
-  Postman: skillData;
+  powershell: skillData;
+  MSSQL: skillData;
+  RestApi: skillData;
   node: skillData;
   python: skillData;
 }

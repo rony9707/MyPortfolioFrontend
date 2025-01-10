@@ -1,11 +1,12 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { portfolio } from '../portfolio.interface';
 import { ElementRef, Renderer2, ViewChild, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-selected-project',
   templateUrl: './selected-project.component.html',
-  styleUrls: ['./selected-project.component.css']
+  styleUrls: ['./selected-project.component.css'],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class SelectedProjectComponent implements OnInit, AfterViewInit {
 

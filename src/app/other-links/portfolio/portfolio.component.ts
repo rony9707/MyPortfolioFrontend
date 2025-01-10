@@ -73,7 +73,7 @@ export class PortfolioComponent implements OnInit {
   MyPortfolioObject: MyPortfolios = {
     Project1: {
       projectName: 'Login, Registration, Shooting Game and Paint',
-      imageLink: 'assets/img/myProjects/LoginRegistration.JPG',
+      imageLink: 'assets/img/myProjects/LoginRegistration.webp',
       progress: 'Completed',
       githubLink: 'https://github.com/rony9707/myMyself_F',
       projectURL: 'https://bymyself01-b55df.web.app',
@@ -83,7 +83,7 @@ export class PortfolioComponent implements OnInit {
     },
     Project2: {
       projectName: 'My Portfolio',
-      imageLink: 'assets/img/myProjects/MyResume.JPG',
+      imageLink: 'assets/img/myProjects/MyResume.webp',
       progress: 'Completed',
       githubLink: 'https://github.com/rony9707/MyPortfolioFrontend',
       projectURL: 'https://my-portfolio-1b0d8.web.app',
@@ -93,7 +93,7 @@ export class PortfolioComponent implements OnInit {
     },
     Project3: {
       projectName: 'My Project Navigator',
-      imageLink: 'assets/img/myProjects/MyProjectNavigator.JPG',
+      imageLink: 'assets/img/myProjects/MyProjectNavigator.webp',
       progress: 'Completed',
       githubLink: 'https://github.com/rony9707/STARTUP-PAGE',
       projectURL: 'Not Hosted',
@@ -103,7 +103,7 @@ export class PortfolioComponent implements OnInit {
     },
     Project4: {
       projectName: 'Electric Bill Payment System',
-      imageLink: 'assets/img/myProjects/ElectricBillPaymentSystem.jpg',
+      imageLink: 'assets/img/myProjects/ElectricBillPaymentSystem.webp',
       progress: 'Completed',
       githubLink: 'https://github.com/rony9707/ElectricBillPaymentSystem',
       projectURL: 'Not Hosted',
@@ -113,7 +113,7 @@ export class PortfolioComponent implements OnInit {
     },
     Project5: {
       projectName: 'My Customizable Project Navigator V2.0',
-      imageLink: 'assets/img/myProjects/MyProjectNavigatorV2.JPG',
+      imageLink: 'assets/img/myProjects/MyProjectNavigatorV2.webp',
       progress: 'Completed',
       githubLink: 'https://github.com/rony9707/projectNavigator',
       projectURL: 'https://myprojectnavigator.web.app',

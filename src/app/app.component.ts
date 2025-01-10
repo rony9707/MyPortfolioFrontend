@@ -3,6 +3,7 @@ import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { SongService } from './other-links/services/song.service';
 import { Subscription } from 'rxjs';
 import { DataTransferSongService } from './services/data-transfer-song.service';
+import { BackendServiceService } from './services/backend-service.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -22,13 +23,13 @@ export class AppComponent {
     private router: Router,
     public songService: SongService,
     private activatedRouter: ActivatedRoute,
-    private dataService:DataTransferSongService
+    private dataService:DataTransferSongService,
+    private backendServer: BackendServiceService,
   ) { }
 
   timer=''
 
   ngOnInit() {
-    console.log(this.songService.music_status)
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.MusicDiv = !event.url.includes('/about');  // Replace '/home' with the route you want to exclude
@@ -41,7 +42,6 @@ export class AppComponent {
     });
 
     this.activatedRouter.fragment.subscribe((value)=>{
-      console.log(value)
       this.jumpTo(value)
     })
 
@@ -49,18 +49,24 @@ export class AppComponent {
       this.timer=timer
     })
 
+
+    this.backendServer.getSongs().subscribe(
+      (mySongs) => {
+        const songLinks = Object.values(mySongs).map(song => song.songLink);
+        this.songService.setSongs(songLinks);
+      },
+      (err)=>{
+        console.log(err)
+      }
+    );
+
   }
-
-
 
   jumpTo(section:any){
     document.getElementById(section)?.scrollIntoView({behavior: 'smooth'})
   }
 
   ngOnDestroy(): void {
-    // if (this.updateSubscription) {
-    //   this.updateSubscription.unsubscribe();
-    // }
     if (this.progressSubscription) {
       this.progressSubscription.unsubscribe();
     }

@@ -37,7 +37,8 @@ export class InterestsComponent implements OnInit, OnDestroy, AfterViewInit {
   constructor(
     private backendServer: BackendServiceService,
     public songService: SongService,
-    private dataService: DataTransferSongService) { }
+    private dataService: DataTransferSongService) {
+  }
 
   songProgress: number = 0;
   animationState: string = 'initial';
@@ -48,19 +49,10 @@ export class InterestsComponent implements OnInit, OnDestroy, AfterViewInit {
   private progressSubscription: Subscription | undefined;
 
   ngOnInit(): void {
-    this.backendServer.getSongs().subscribe(
-      (mySongs) => {
-        const songLinks = Object.values(mySongs).map(song => song.songLink);
-        this.songService.setSongs(songLinks);
-      }
-    );
 
     this.progressSubscription = this.songService.songProgress.subscribe(progress => {
       this.songProgress = progress;
     });
-
-
-
   }
 
   ngAfterViewInit(): void {
@@ -68,7 +60,7 @@ export class InterestsComponent implements OnInit, OnDestroy, AfterViewInit {
     if (data === 'fromsong') {
       document.getElementById('musicsection')?.scrollIntoView({ behavior: 'smooth' })
     }
-    this.dataService.clearData(); 
+    this.dataService.clearData();
   }
 
   ngOnDestroy(): void {
@@ -111,11 +103,8 @@ export class InterestsComponent implements OnInit, OnDestroy, AfterViewInit {
     //const { offsetWidth, offsetLeft } = progressElement;
     //const clickX = event.pageX - offsetLeft;
     const seekPosition = (event.offsetX / progressElement.offsetWidth) * 100;
-    console.log(event)
-    console.log(progressElement)
     if (!isNaN(seekPosition)) { // Check if the click event originated from the progress bar
       this.songProgress = seekPosition;
-      console.log(seekPosition)
       this.songService.seekToPosition(seekPosition);;
     }
   }

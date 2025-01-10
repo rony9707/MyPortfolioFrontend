@@ -1,10 +1,11 @@
-import { Component, Input, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, Input, AfterViewInit, ViewChild, ElementRef, ChangeDetectionStrategy } from '@angular/core';
 import { Metric } from '../about-metrics.interface';
 
 @Component({
   selector: 'app-metric-template',
   templateUrl: './metric-template.component.html',
-  styleUrls: ['./metric-template.component.css']
+  styleUrls: ['./metric-template.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MetricTemplateComponent implements AfterViewInit {
 
